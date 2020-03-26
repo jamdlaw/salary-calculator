@@ -4,8 +4,9 @@
     <div id="app">
         <label for="hourly"> Enter Hourly Rate</label>
         <input type="text" id="hourly"  v-model="hourlyRate" v-on:change="getYearlySalaryForHourlyRate"  />
-        <!-- <button v-on:click="getYearlySalaryForHourlyRate">Submit</button> -->
-        <p>{{total}}</p>
+        <input type="text" id="weeklyHours"  v-model="weeklyHours" v-on:change="getYearlySalaryForHourlyRate"  />
+        
+        <p> Total Yearly Rate: {{total}}</p>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>      
     <script>
@@ -13,11 +14,12 @@
             el: '#app',
             data: {
                 hourlyRate: '',
+                weeklyHours: 40,
                 total: ''
             },
             methods: {
                 getYearlySalaryForHourlyRate: function(){
-                    this.total = (this.hourlyRate * 40) * 52;
+                    this.total = (this.hourlyRate * this.weeklyHours) * 52;
                 }
             }
 
