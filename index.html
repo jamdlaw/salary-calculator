@@ -6,20 +6,23 @@
         <input type="text" id="hourly"  v-model="hourlyRate" v-on:change="getYearlySalaryForHourlyRate"  />
         <input type="text" id="weeklyHours"  v-model="weeklyHours" v-on:change="getYearlySalaryForHourlyRate"  />
         
-        <p> Total Yearly Rate: {{total}}</p>
+        <p> Total Yearly Rate: {{formattedTotal}}</p>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>      
-    <script>
+    <script>    
         var app = new Vue({
             el: '#app',
             data: {
                 hourlyRate: '',
                 weeklyHours: 40,
-                total: ''
+                total: '',
+                formattedTotal: ''    
             },
             methods: {
                 getYearlySalaryForHourlyRate: function(){
                     this.total = (this.hourlyRate * this.weeklyHours) * 52;
+                    
+                    this.formattedTotal = '$' + this.total.toFixed(2)
                 }
             }
 
