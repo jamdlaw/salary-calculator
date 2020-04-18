@@ -22,7 +22,10 @@
                 getYearlySalaryForHourlyRate: function(){
                     this.total = (this.hourlyRate * this.weeklyHours) * 52;
                     
-                    this.formattedTotal = '$' + this.total.toFixed(2)
+                    this.formattedTotal = '$' + this.numberWithCommas(this.total.toFixed(2));
+                }, 
+                numberWithCommas: function(x) {
+                    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }
             }
 
