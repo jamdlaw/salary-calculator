@@ -6,16 +6,18 @@
     <header>
         <h1>Salary Calculator</h1>
     </header>
-        <div class="content">
-            <div id="app">
-                <label for="hourly"> Enter Hourly Rate</label>
-                <input type="text" id="hourly"  v-model="hourlyRate" v-on:change="getYearlySalaryForHourlyRate"  />
-                <input type="text" id="weeklyHours"  v-model="weeklyHours" v-on:change="getYearlySalaryForHourlyRate"  />
-                
-                <p> Total Yearly Rate: {{formattedTotal}}</p>
-            </div>
-        </div>  
-    <footer></footer>  
+        <div class="wrapper">
+            <div class="content">
+                <div class="app" id="app">
+                    <label for="hourly"> Enter Hourly Rate</label>
+                    <input type="text" id="hourly"  v-model="hourlyRate" v-on:change="getYearlySalaryForHourlyRate"  />
+                    <input type="text" id="weeklyHours"  v-model="weeklyHours" v-on:change="getYearlySalaryForHourlyRate"  />
+                    
+                    <p> Total Yearly Rate: {{formattedTotal}}</p>
+                </div>
+            </div>  
+        </div>
+    <footer> some footer contnet </footer>  
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>      
     <script>    
         var app = new Vue({
